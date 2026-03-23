@@ -24,6 +24,9 @@ jobs:
         pip install requests pandas matplotlib
 
     - name: Run script
+      env:
+        ZEE_EMAIL: ${{ secrets.ZEE_EMAIL }}
+        ZEE_PASSWORD: ${{ secrets.ZEE_PASSWORD }}
       run: python zee_cron.py
 
     - name: Commit and push if changed
